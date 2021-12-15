@@ -37,18 +37,12 @@ while(artikel !== "stop"){
 }
 
 let woord = prompt("Zoek artikelen op woord die voorkomt in de naam van het artikel");
+console.log("Artikels die het woord bevatten:");
 
 for (const artikel of artikels){
-    if(artikel.naam.includes(woord))
-        artikelsMetWoord.push({
-        naam:artikel.naam
-    });
-}
-
-console.log("Artikels die het woord bevatten:")
-
-for (const artikel of artikelsMetWoord){
-    console.log(artikel.naam);
+    if(artikel.naam.includes(woord)){
+      console.log(artikel.naam);
+    }
 }
 
 let bodemPrijs = Number(prompt("Geef een bodemprijs in"));
@@ -57,20 +51,12 @@ let topPrijs = Number(prompt("Geef een topprijs in"));
 if(bodemPrijs > topPrijs){
     console.log("Fout: de bodemprijs kan niet hoger zijn dan te topprijs");
 } else{
+    console.log("Artikels met prijs binnen de gegeven min en max prijs: ");
     for (const artikel of artikels){
         if (artikel.verkoopPrijs >= bodemPrijs && artikel.verkoopPrijs <= topPrijs){
-            artikelsBinnenPrijs.push({
-                naam: artikel.naam,
-                prijs: artikel.verkoopPrijs
-            });
+            console.log(artikel.naam, artikel.verkoopPrijs);
         }
     }
-}
-
-console.log("Artikels met prijs binnen de gegeven min en max prijs: ");
-
-for (artikel of artikelsBinnenPrijs){
-    console.log(artikel.naam, artikel.prijs);
 }
 
 let gemiddeldeVerkoopPrijs = Number((totaalVerkoopPrijs / aantalArtikels).toFixed(2));
